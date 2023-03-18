@@ -1,0 +1,261 @@
+.App {
+  text-align: center;
+}
+
+.formContainer{
+  height: 100vh;
+  width: auto;
+  background-color: rgb(148, 188, 237);
+  display: flex;
+  justify-content: center;
+}
+
+.formWrapper{
+  height: 500px;
+  width: 450px;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 100px;
+  padding: 0;
+  border-radius: 15px;
+  opacity: 0.9;
+  display: flex;
+  flex-direction: column;
+}
+.name-front{
+  height: 40px;
+  width: 200px;
+  margin-top: 0;
+  font-weight: 500;
+  align-items: center;
+  color: rgb(82, 171, 244);
+  font-size: 30px;
+  justify-content: center;
+ 
+}
+.head{
+  height: 40px;
+  width: 100px;
+  align-items: center;
+  margin-top: 0px;
+  padding: 3px;
+  color: rgb(162, 160, 160);
+  font-weight: 500;
+  font-size: 20px;
+  justify-content: center;
+}
+
+input{
+  height: 30px;
+  width: 380px;
+  border: none;
+  border-bottom: 1px solid rgb(162, 160, 160);
+  margin-top: 5px;
+  margin-bottom: 10px;
+ 
+  font-size: 16px;
+  background-color: white;
+}
+.cred{
+  background-color: rgb(99, 164, 243);
+  height: 35px;
+  width: 380px;
+  border-radius: 7px;
+  margin-top: 20px;
+  font-size: 17px;
+ color: white;
+  border: none;
+}
+.line1{
+  color: rgb(162, 160, 160);
+ 
+  margin-top: 20px;
+}
+span{
+  color: rgb(99, 164, 243);
+}
+label{
+  color: rgb(162, 160, 160);
+}
+
+.home{
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(148, 188, 237);
+  display: flex;
+}
+.container{
+  height: 80%;
+  width: 65%;
+  border-radius: 15px;
+  border: 1px solid white;
+  display: flex;
+  overflow: hidden;
+}
+.sidebar{
+  flex: 1;
+  background-color: rgb(20, 67, 96);
+  
+}
+.navbar{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background-color: rgb(9, 48, 73);
+  justify-content: space-between;
+}
+.name-nav{
+  height: 40px;
+  font-weight: 400;
+  align-items: center;
+  color: rgb(82, 171, 244);
+  font-size: 30px;
+  margin-left: 10px;
+}
+.user{
+display: flex;
+padding: 10px;
+gap: 10px;
+}
+span{
+  padding-top: 7px;
+}
+.out{
+  background-color: rgb(99, 164, 243);
+  height: 30px;
+  border-radius: 7px;
+  font-size: 13px;
+ color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.chat{
+  flex: 2;
+}
+.chatInfo{
+  height: 50px;
+  background: rgb(20, 67, 96);
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(148, 188, 237);
+
+}
+.messages{
+background: rgb(180, 207, 215);
+padding: 10px;
+height: calc(100% - 160px);
+overflow: scroll;
+}
+.message{
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  
+}
+.messageInfo{
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  color: grey;
+
+}
+.messageInfo img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.messageContent{
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.messageContent p{
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 0px 10px 10px 10px;
+  
+}
+.messageContent img{
+  height: 50%;
+
+}
+.input{
+  background: #fff;
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(162, 160, 160);
+}
+.input input{
+  width: 100%;
+  border: none;
+  outline: none;
+  color: rgb(102, 102, 102);
+  font-size: 18px;
+}
+.input input::placeholder{
+color: rgb(162, 160, 160);
+}
+.send{
+  gap: 10px;
+  display: flex;
+ align-items: center;
+ color: rgb(162, 160, 160);
+}
+.send button{
+  border: none;
+  padding: 5px, 5px;
+  color: white;
+  background: rgb(20, 67, 96);
+  cursor: pointer;
+}
+.search{
+  border-bottom: 1px solid rgb(162, 160, 160);
+}
+.searchForm{
+  padding: 5px;
+
+}
+.searchFormIn{
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+}
+.userChat{
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: white;
+  cursor: pointer;
+}
+.userChat:hover{
+background-color: rgb(9, 48, 73);
+}
+userChatInfo{
+  height: 30px;
+}
+.userName{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+img{
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+}
+p{
+  height: 20px;
+  margin: 0;
+}
