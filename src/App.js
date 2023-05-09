@@ -8,16 +8,17 @@ import { AuthContext } from './context/authContext';
 
 
 function App() {
-  // const {currentUser} = useContext(AuthContext)
-  // const ProtectedRoute =({children}) =>{
-  //   if(!currentUser){
-  //     return <Navigate to="/login"/>
-  //   }
-  // }
-  // console.log(currentUser);
+  const {currentUser} = useContext(AuthContext)
+  const ProtectedRoute =({children}) =>{
+    if(!currentUser){
+      return <Navigate to="/login"/>
+    }
+    return children
+  }
+  console.log(currentUser);
   return (
     <div className="App"> 
-    {/* <BrowserRouter>
+    <BrowserRouter>
     <Routes>
       <Route path="/">
       <Route index element ={<ProtectedRoute><Home/></ProtectedRoute>}/>
@@ -25,9 +26,9 @@ function App() {
       <Route path = "register" element={<Register/>}/>
       </Route>
     </Routes>
-    </BrowserRouter> */}
+    </BrowserRouter>
 
-    <Register/>
+    {/* <Register/> */}
     </div>
   );
 }

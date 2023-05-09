@@ -4,12 +4,12 @@ import {createUserWithEmailAndPassword , signInWithPopup, updateProfile} from "f
 import {auth, storage, db, googleAuth} from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore"; 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 const Register = () => {
-const [err, setErr] = useState(false)
-// const navigate = useNavigate()
+const [err, setErr] = useState()
+const navigate = useNavigate()
 
 const  handleSubmit = async (e) =>{
   e.preventDefault();
@@ -45,8 +45,8 @@ uploadTask.on(
     
       });
       
-      // await setDoc(doc(db, "userChat", res.user.uid), {});
-      // navigate("/")
+      await setDoc(doc(db, "userChat", res.user.uid), {});
+      navigate("/")
     });
   }
 );
@@ -90,7 +90,7 @@ setErr(true);
 {err && <span>Something went wrong</span>}
 </form>
 
-<p className='line1'>Already have an account <span>Login</span> </p>
+<p className='line1'>Already have an account <Link to="/login">Log In</Link> </p>
         </div>
     </div>
   )
