@@ -25,7 +25,7 @@ navigate("/")
         <div className="formWrapper">
        <span className='name-front'>CHAT</span>
        <br />
-       <span className='head'>Register</span>
+       <span className='head'>Log In</span>
 <form  onSubmit={handleSubmit}>
 
 
