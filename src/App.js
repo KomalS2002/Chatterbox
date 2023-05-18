@@ -8,14 +8,14 @@ import { AuthContext } from './context/authContext';
 
 
 function App() {
-  const {currentUser} = useContext(AuthContext)
+  const {currentUser} = useContext(AuthContext);
   const ProtectedRoute =({children}) =>{
     if(!currentUser){
-      return <Navigate to="/login"/>
+      return <Navigate to="/login"/>;
     }
     return children
-  }
-  console.log(currentUser);
+  };
+  // console.log(currentUser);
   return (
     <div className="App"> 
     <BrowserRouter>

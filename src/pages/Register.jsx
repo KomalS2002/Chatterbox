@@ -8,10 +8,12 @@ import { useNavigate, Link } from 'react-router-dom';
 
 
 const Register = () => {
-const [err, setErr] = useState()
-const navigate = useNavigate()
+const [err, setErr] = useState(false);
+const [loading, setLoading] = useState(false);
+const navigate = useNavigate();
 
 const  handleSubmit = async (e) =>{
+  setLoading(true);
   e.preventDefault();
   const displayName = e.target[0].value;
   const email = e.target[1].value;
@@ -21,42 +23,73 @@ const  handleSubmit = async (e) =>{
 try {
 const res = await createUserWithEmailAndPassword(auth, email, password);
 
+const date = new Date().getTime();
 const storageRef = ref(storage, displayName);
 
-const uploadTask = uploadBytesResumable(storageRef, file);
+// const uploadTask = uploadBytesResumable(storageRef, file);
 
-uploadTask.on(
-  (error) => {
-    setErr(true);
-  }, 
-() => {
-  getDownloadURL(uploadTask.snapshot.ref).then(async(downloadURL) => {
-    await updateProfile(res.user,{
+// uploadTask.on(
+//   (error) => {
+//     setErr(true);
+//   }, 
+// () => {
+//   getDownloadURL(uploadTask.snapshot.ref).then(async(downloadURL) => {
+//     await updateProfile(res.user,{
+//         displayName,
+//         photoURL: downloadURL,
+
+//       });
+      
+//     await  setDoc(doc(db,"users", res.user.uid),{
+//         uid: res.user.uid,
+//         displayName,
+//         email,
+//         photoURL: downloadURL,
+    
+//       });
+      
+//       await setDoc(doc(db, "userChat", res.user.uid), {});
+//       navigate("/")
+//     });
+//   }
+// );
+ 
+
+//   }catch(err){}
+//   setErr(true);
+// }
+
+await uploadBytesResumable(storageRef, file).then(() => {
+  getDownloadURL(storageRef).then(async (downloadURL) => {
+    try {
+      //Update profile
+      await updateProfile(res.user, {
         displayName,
         photoURL: downloadURL,
-
       });
-      
-    await  setDoc(doc(db,"users", res.user.uid),{
+      //create user on firestore
+      await setDoc(doc(db, "users", res.user.uid), {
         uid: res.user.uid,
         displayName,
         email,
         photoURL: downloadURL,
-    
       });
-      
-      await setDoc(doc(db, "userChat", res.user.uid), {});
-      navigate("/")
-    });
-  }
-);
- 
 
-  }catch(err){}
-  setErr(true);
+      //create empty user chats on firestore
+      await setDoc(doc(db, "userChats", res.user.uid), {});
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+      setErr(true);
+      setLoading(false);
+    }
+  });
+});
+} catch (err) {
+setErr(true);
+setLoading(false);
 }
-
-
+};
 
 
 const signInWithGoogle=async()=>{
@@ -93,7 +126,7 @@ setErr(true);
 <p className='line1'>Already have an account <Link to="/login">Log In</Link> </p>
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

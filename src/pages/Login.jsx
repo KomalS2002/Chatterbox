@@ -5,8 +5,8 @@ import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
 
-const [err, setErr] = useState(false)
-const navigate = useNavigate()
+const [err, setErr] = useState(false);
+const navigate = useNavigate();
 
 const  handleSubmit = async (e) =>{
   e.preventDefault();
@@ -15,11 +15,11 @@ const  handleSubmit = async (e) =>{
 
 try {
   await signInWithEmailAndPassword(auth, email, password);
-navigate("/")
-}catch(err){}
+  navigate("/")
+} catch(err){
   setErr(true);
 }
-
+};
  return (
     <div className='formContainer'>
         <div className="formWrapper">
@@ -38,10 +38,10 @@ navigate("/")
 <button className='cred'>Sign in</button>
 {err && <span>Something went wrong</span>}
 </form>
-<p className='line1'>Don't  have an account <Link to="/register">Register</Link> </p>
+<p className='line1'>Don't have an account <Link to="/register">Register</Link> </p>
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
